@@ -1,0 +1,69 @@
+🔑 Infographic Suggestions for Your Report
+
+Future Revenue from Assets (Declining Output Over Time)
+
+Chart Type: Stacked bar chart or waterfall.
+
+Content: Annual electricity generation (GWh) falling as turbines reach end-of-life.
+
+Add a cumulative cash flow box at the bottom (total revenue over asset life).
+
+Bottom caption: assumptions (average power price £65/MWh, O&M costs ~10%, management fees, etc.).
+
+Cash Flow Statement (2024 & H1 2025)
+
+Chart Type: Sankey (like your screenshot).
+
+Flows: Operating cash inflow → Investing outflow → Financing (debt/dividends) → Net change in cash.
+
+Colors: Green for operations, Yellow for investing, Red for financing outflows.
+
+Balance Sheet Visual (2024 & H1 2025)
+
+Chart Type: Treemap or proportional stacked bars.
+
+Assets vs Liabilities vs Equity.
+
+Highlight tangible assets (wind farms) vs debt (loans) and equity.
+
+Annotate key ratios: Debt/Equity, Debt/Assets.
+
+Wind Variability Chart
+
+Chart Type: Line chart with multiple years/months of wind speeds or output.
+
+Show month-to-month electricity generation (GWh) with green/yellow lines.
+
+Add a horizontal red line = long-term average.
+
+Annotate “calm years” (e.g. 2024, below-average) vs windy years.
+
+UK Electricity Market Pricing (Marginal Pricing Mechanism)
+
+Chart Type: Supply/Demand curve with price set by gas.
+
+Show low-cost renewables (wind, solar) on the left of the supply stack, gas on the right.
+
+Highlight that all generators get paid the gas marginal price, creating huge producer surplus for wind.
+
+Annotate “free fuel” advantage of wind.
+
+Dividend Policy & NAV Discount
+
+Chart Type: Dual-axis line chart.
+
+Dividend per share rising (green) vs RPI inflation (yellow).
+
+NAV per share vs Share Price (show discount widening to 25%).
+
+Annotate dividend yield ~9%, NAV discount ~25%.
+
+Risk & Hedging Visualization
+
+Chart Type: Funnel or scenario tree.
+
+Left: “Base Case” (dividends + stable NAV).
+
+Right branches: “Low Wind Year”, “Policy Change”, “High Interest Rates”.
+
+Each branch annotated with effect (lower NAV, wider discount, etc.) and mitigation (dividend cover, hedging, buybacks).
