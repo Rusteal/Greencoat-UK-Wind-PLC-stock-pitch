@@ -3,63 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Greencoat UK Wind (UKW) — Stock Pitch | Ruslan Lytvynov</title>
-  <meta name="description" content="18‑page equity research pitch for Greencoat UK Wind PLC (UKW). Dividend, valuation, risks, and portfolio economics." />
+  <title>Greencoat UK Wind (UKW) - Stock Pitch | Ruslan Lytvynov</title>
+  <meta name="description" content="Full 18-page equity research pitch for Greencoat UK Wind PLC (UKW). Dividend, valuation, risks, and portfolio economics." />
   <style>
+    /* ==== THEME (Dark, Green-forward, Low-glare) ==== */
     :root{
-      --bg:#0b0c0f;
-      --panel:#12141a;
-      --ink:#e8e8ea;
-      --muted:#a6a8ae;
-      --brand:#2b8cff;
-      --brand-2:#50e3c2;
-      --card:#1a1d25;
-      --border:#262a35;
-      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --bg: #0b0f0c;
+      --panel: #111712;
+      --ink: #e6efe9;
+      --muted: #a2b2a8;
+      --brand: #2ed08a;
+      --brand-2: #0fbf7f;
+      --accent: #8be6b3;
+      --card: #0f1511;
+      --border: #173822;
+      --shadow: 0 10px 26px rgba(0,0,0,.35);
+      --ring: 0 0 0 3px color-mix(in oklab, var(--brand) 20%, transparent);
     }
     @media (prefers-color-scheme: light){
       :root{
-        --bg:#f7f8fb; --panel:#ffffff; --ink:#0d0f14; --muted:#4e5563;
-        --brand:#0a66ff; --brand-2:#05c3a7; --card:#ffffff; --border:#e8eaf2; --shadow: 0 10px 24px rgba(0,0,0,.07);
+        --bg:#f4f7f5;
+        --panel:#ffffff;
+        --ink:#0d1210;
+        --muted:#607066;
+        --brand:#1fb87a;
+        --brand-2:#16a970;
+        --accent:#0fbf7f;
+        --card:#ffffff;
+        --border:#d8e5dd;
+        --shadow: 0 10px 24px rgba(0,0,0,.07);
       }
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0; background:radial-gradient(1200px 800px at 85% -10%, rgba(80,227,194,.12), transparent 50%),
-      radial-gradient(900px 600px at -10% 20%, rgba(43,140,255,.10), transparent 60%), var(--bg);
-      color:var(--ink); font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      margin:0;
+      background:
+        radial-gradient(1200px 800px at 85% -10%, rgba(21, 107, 68, .18), transparent 50%),
+        radial-gradient(900px 600px at -10% 20%, rgba(18, 156, 107, .12), transparent 60%),
+        var(--bg);
+      color:var(--ink);
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
     }
     .wrap{max-width:1200px; margin:0 auto; padding:28px 22px 60px}
+
+    /* ==== AUTO-HIDING HEADER ==== */
     header{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(14px);
-      background: color-mix(in oklab, var(--bg) 70%, transparent);
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(160%) blur(12px);
+      background: color-mix(in oklab, var(--panel) 65%, transparent);
       border-bottom:1px solid var(--border);
+      transition: transform .28s ease;
+      will-change: transform;
     }
+    header.hide{ transform: translateY(-100%); }
     .hero{
       display:grid; grid-template-columns: 1.1fr .9fr; gap:26px; align-items:center;
-      padding:22px 22px; max-width:1200px; margin:0 auto;
+      padding:18px 22px; max-width:1200px; margin:0 auto;
     }
     .hero h1{
-      margin:.2rem 0 .4rem; font-weight:800; letter-spacing:.2px; line-height:1.15;
-      font-size: clamp(24px, 2.4vw + 10px, 40px);
-      background: linear-gradient(90deg, var(--ink), color-mix(in oklab, var(--brand) 30%, var(--ink)));
+      margin:.2rem 0 .3rem; font-weight:800; letter-spacing:.2px; line-height:1.15;
+      font-size: clamp(22px, 2.2vw + 10px, 38px);
+      background: linear-gradient(90deg, var(--ink), color-mix(in oklab, var(--brand) 32%, var(--ink)));
       -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    .tagline{color:var(--muted); font-size:clamp(14px,1.2vw+8px,18px); margin:0}
-    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .tagline{color:var(--muted); font-size:clamp(14px,1.1vw+8px,18px); margin:0}
+    .hero .meta{margin-top:12px; color:var(--muted); font-size:14px}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
     .btn{
       display:inline-flex; align-items:center; gap:10px; text-decoration:none;
       border:1px solid var(--border); background:var(--panel); color:var(--ink);
-      padding:10px 14px; border-radius:12px; box-shadow:var(--shadow); transition: all .18s ease;
+      padding:9px 14px; border-radius:12px; box-shadow:var(--shadow); transition: transform .16s ease, background .2s ease, border-color .2s ease;
       font-weight:600;
     }
-    .btn svg{width:18px; height:18px}
-    .btn.primary{background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#0d1117; border-color:transparent}
-    .btn:hover{transform:translateY(-1px); box-shadow: 0 16px 40px rgba(0,0,0,.25)}
-    .grid{display:grid; grid-template-columns: 280px 1fr; gap:24px; margin-top:26px}
+    .btn:focus-visible{ outline:none; box-shadow: var(--ring); }
+    .btn.primary{
+      background:linear-gradient(90deg, var(--brand), var(--brand-2));
+      color:#05130b; border-color:transparent
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .hero-note{align-self:stretch}
+    .hero-card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card h2{margin:0 0 .6rem; font-size:18px}
+    .hero-card ul{margin:0; padding-left:20px}
+    .hero-card li{margin-bottom:.4rem; color:var(--ink)}
+
+    .grid{display:grid; grid-template-columns: 280px 1fr; gap:24px; margin-top:22px}
     nav{
-      position:sticky; top:84px; align-self:start; background:var(--panel); border:1px solid var(--border);
+      position:sticky; top:72px; align-self:start; background:var(--panel); border:1px solid var(--border);
       border-radius:16px; padding:14px 14px; box-shadow:var(--shadow);
     }
     nav h3{margin:.2rem 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted)}
@@ -69,7 +107,12 @@
       display:block; text-decoration:none; color:var(--ink); padding:8px 10px; border-radius:10px;
       border:1px solid transparent;
     }
-    .toc a:hover, .toc a:focus{background: color-mix(in oklab, var(--brand) 12%, var(--panel)); border-color:var(--border)}
+    .toc a:hover, .toc a:focus{
+      background: color-mix(in oklab, var(--brand) 12%, var(--panel));
+      border-color:var(--border);
+      outline:none;
+    }
+    .toc a.active{ border-color: color-mix(in oklab, var(--brand) 40%, var(--border)); background: color-mix(in oklab, var(--brand) 16%, var(--panel)); }
     .toc small{color:var(--muted); font-size:12px}
     main{min-width:0}
     section.card{
@@ -77,128 +120,316 @@
       box-shadow:var(--shadow); margin-bottom:18px;
     }
     section.card h2{margin:.2rem 0 .6rem; font-size:22px}
-    .pdf-embed{aspect-ratio: 8.5/11; width:100%; min-height:70vh; border-radius:14px; border:1px solid var(--border)}
-    .meta{display:flex; flex-wrap:wrap; gap:14px; color:var(--muted); font-size:14px}
+    section.card h3{margin:1.2rem 0 .4rem; font-size:18px; color:var(--ink)}
+    section.card p{margin:0 0 .9rem}
+    section.card ul{margin:0 0 1.1rem 1.2rem; padding:0}
+    section.card li{margin-bottom:.4rem}
+    .pdf-contents{list-style:none; padding:0; margin:0}
+    .pdf-contents li{
+      border-bottom:1px dashed color-mix(in oklab, var(--muted) 30%, transparent);
+      padding:8px 0;
+      font-size:15px;
+    }
+    .pdf-contents a{
+      color:var(--ink);
+      text-decoration:none;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+    .pdf-contents a span{
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .pdf-contents a:hover,
+    .pdf-contents a:focus{
+      color:var(--accent);
+      outline:none;
+    }
+    figure{margin:1.2rem 0; text-align:center}
+    figure img{
+      width:100%; border-radius:12px; border:1px solid var(--border);
+      box-shadow:var(--shadow); background:var(--card);
+    }
+    figure figcaption{margin-top:8px; font-size:14px; color:var(--muted)}
+    .figure-grid{
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+      margin-top:1.2rem;
+    }
+    .figure-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      width:100%;
+    }
+    .figure-card h3{margin:0; font-size:18px}
+    .figure-card img{
+      width:100%;
+      max-width:100%;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--panel);
+    }
+    .figure-card small{color:var(--muted); font-size:13px}
+    .references{margin:0; padding-left:20px}
+    .references li{margin-bottom:.8rem}
+
     footer{margin-top:36px; color:var(--muted); text-align:center}
-    code.inline{background:var(--card); border:1px solid var(--border); padding:.1rem .4rem; border-radius:6px}
-    @media (max-width: 980px){
-      .hero{grid-template-columns: 1fr}
-      .grid{grid-template-columns: 1fr}
-      nav{position:relative; top:auto}
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      nav{position:static}
     }
   </style>
 </head>
 <body>
-  <header>
+  <header id="site-header">
     <div class="hero">
       <div>
-        <h1>Greencoat UK Wind (UKW) — Equity Research Pitch</h1>
-        <p class="tagline">An 18‑page investment thesis: pricing structure, economics, portfolio, valuation, and risks — by Ruslan Lytvynov.</p>
+        <h1>Greencoat UK Wind (UKW) - Stock Pitch</h1>
+        <p class="tagline">Full transcription of the February 2025 research deck with charts, figures, and references.</p>
         <div class="cta-row">
-          <a class="btn primary" href="Greencoat_UKW_StockPitch.pdf" target="_blank" rel="noopener">
-            <!-- Document icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6"/></svg>
-            View PDF
-          </a>
-          <a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=1" target="_blank" rel="noopener">Open at Cover</a>
-          <a class="btn" href="Greencoat_UKW_StockPitch.pdf" download>Download</a>
+          <a class="btn primary" href="Greencoat_UKW_StockPitch.pdf" download>Download PDF</a>
+          <a class="btn" href="#contents">Jump to Contents</a>
         </div>
-        <p class="meta">
-          <span>Last updated: <time datetime="2025-10-21">21 Oct 2025</time></span>
-          <span>Length: 18 pages</span>
-        </p>
+        <p class="meta">Ruslan Lytvynov &middot; St Andrews &middot; 18-page investment pitch.</p>
       </div>
-      <div>
-        <section class="card" aria-label="Executive summary">
-          <h2 id="summary">Executive Summary</h2>
-          <p>This report argues that <strong>UK marginal-cost pricing</strong> structurally benefits wind assets; UKW’s diversified 2&nbsp;GW portfolio converts this into <strong>inflation‑linked dividends</strong> (~9% yield) with prudent leverage and buybacks supporting NAV, while key risks are wind variability, rates, and policy.</p>
-          <p style="margin:.4rem 0 0"><a class="btn" href="#toc">Jump to Table of Contents</a></p>
-        </section>
+      <div class="hero-note">
+        <div class="hero-card">
+          <h2>Quick Highlights</h2>
+          <ul>
+            <li>49 operating wind farm investments with about 2.0 GW net capacity [16].</li>
+            <li>Dividend guided to 10.35p for FY25 (~9% yield) [36][38].</li>
+            <li>Shares trading around a 25% discount to the 151p NAV (Dec 2024) [42][44].</li>
+          </ul>
+        </div>
       </div>
     </div>
   </header>
 
   <div class="wrap grid">
-    <nav aria-label="Table of contents">
-      <h3 id="toc">Contents</h3>
+    <nav>
+      <h3>Contents</h3>
       <ul class="toc">
-        <li><a href="#embed">Full Report (embedded)</a></li>
-        <li><a href="#high-yield">Greencoat UK Wind — High‑Yield Renewable Power Play <small>(open PDF p.2)</small></a></li>
-        <li><a href="#market">Market Overview: Structural Pricing Advantage <small>(p.2)</small></a></li>
-        <li><a href="#economics">Wind Energy Economics: High Margins from Low Costs <small>(p.3)</small></a></li>
-        <li><a href="#company">Company Profile: Assets & Cash Flows <small>(p.4)</small></a></li>
-        <li><a href="#valuation">Valuation &amp; Outlook: Inflation‑Linked Dividends <small>(p.6)</small></a></li>
-        <li><a href="#risks">Risk Assessment &amp; Mitigation <small>(p.8)</small></a></li>
-        <li><a href="#conclusion">Conclusion <small>(p.9)</small></a></li>
-        <li><a href="#figures">Figures <small>(p.10)</small></a></li>
-        <li><a href="#references">References <small>(p.15)</small></a></li>
+        <li><a href="#contents">Contents<br /><small>PDF outline</small></a></li>
+        <li><a href="#overview">Overview<br /><small>Market structure</small></a></li>
+        <li><a href="#economics">Wind Economics<br /><small>Onshore vs offshore</small></a></li>
+        <li><a href="#company">Company Profile<br /><small>Assets &amp; cash flows</small></a></li>
+        <li><a href="#valuation">Valuation &amp; Outlook<br /><small>Yield, discount, returns</small></a></li>
+        <li><a href="#risks">Risk Assessment<br /><small>Key mitigants</small></a></li>
+        <li><a href="#hedging">Hedging Strategy<br /><small>Downside protection</small></a></li>
+        <li><a href="#conclusion">Conclusion<br /><small>Investment case</small></a></li>
+        <li><a href="#figures">Figures<br /><small>Charts &amp; visuals</small></a></li>
+        <li><a href="#references">References<br /><small>Source list</small></a></li>
+        <li><a href="#author">Author<br /><small>Background</small></a></li>
       </ul>
-      <hr style="border:0;border-top:1px solid var(--border);margin:12px 0" />
-      <p class="tagline" style="margin:6px 4px 0">Each section link below also provides a shortcut to the exact page inside the PDF.</p>
     </nav>
 
     <main>
-      <section class="card" id="embed" aria-label="PDF">
-        <h2>Full Report — Embedded Reader</h2>
-        <iframe class="pdf-embed" src="Greencoat_UKW_StockPitch.pdf#view=FitH&toolbar=1&navpanes=0"></iframe>
-        <p class="tagline" style="margin-top:10px">Tip: Use the PDF toolbar to search, zoom, or open in a new tab.</p>
+      <section class="card" id="contents" aria-label="Table of contents">
+        <h2>Contents</h2>
+        <ul class="pdf-contents">
+          <li><a href="#overview">Greencoat UK Wind (UKW) - High-Yield Renewable Power Play<span>Market overview</span></a></li>
+          <li><a href="#economics">Wind Energy Economics: High Margins from Low Costs<span>Unit economics</span></a></li>
+          <li><a href="#company">Company Profile: Assets and Cash Flows<span>Portfolio snapshot</span></a></li>
+          <li><a href="#valuation">Valuation &amp; Outlook: Inflation-Linked Dividends at a Discount<span>Yield &amp; discount</span></a></li>
+          <li><a href="#risks">Risk Assessment and Mitigation<span>Wind, policy, macro</span></a></li>
+          <li><a href="#hedging">Hedging Strategy<span>Downside protection playbook</span></a></li>
+          <li><a href="#conclusion">Conclusion<span>Investment case</span></a></li>
+          <li><a href="#figures">Figures<span>Charts &amp; visuals</span></a></li>
+          <li><a href="#references">References<span>Source list</span></a></li>
+        </ul>
       </section>
 
-      <section class="card" id="high-yield" aria-label="High-yield angle">
-        <h2>Greencoat UK Wind — High‑Yield Renewable Power Play</h2>
-        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=2" target="_blank" rel="noopener">Open this section in PDF (p.2)</a></p>
-        <p>Overview of the investment case, framing UKW as a cash‑generative, inflation‑linked yield vehicle backed by regulated hard assets.</p>
+      <section class="card" id="overview" aria-label="Market overview">
+        <h2>Greencoat UK Wind (UKW) &ndash; High-Yield Renewable Power Play</h2>
+        <h3>Market Overview: Structural Pricing Advantage for Wind Energy</h3>
+        <p><strong>Under the UK's marginal-cost wholesale pricing system,</strong> all electricity generators get paid the price of the most expensive unit needed to meet demand&mdash;usually gas-fired power [1][2]. In practice, this means wind farms (with near-zero fuel cost) can sell power at the same high price set by costly gas generation. This pricing model has been in place for decades (with the Government affirming its efficiency in a 2022 review [3]) and has not materially changed since the market's liberalisation. As a result, surging gas prices translate into windfall revenues for low-cost renewable producers [4].</p>
+        <figure>
+          <img src="assets/wind_power_variability.png" alt="Wind power merit-order chart showing price and demand profiles" loading="lazy" />
+          <figcaption>Wind price and demand dynamics: the chart highlights how low-cost renewables clear alongside higher-cost thermal generation, capturing the gas-set power price.</figcaption>
+        </figure>
+        <p><strong>Over the past two years, gas volatility created a "money glitch" for renewables.</strong> Gas prices spiked dramatically in 2021&ndash;2022 [5][6] (due to post-Covid demand and the Ukraine crisis), driving UK wholesale electricity prices to record levels. Wind farms, whose operating costs did not rise comparably, enjoyed exceptional profit margins. For example, many non-gas generators reported large profits in 2022 thanks to the gas-driven price surge [4]. (This prompted the UK government to introduce a 45% windfall levy on low-carbon generator profits above a threshold [7]&mdash;a measure in effect until 2028.)</p>
+        <p><strong>Looking ahead, it's unlikely that the fundamental pricing mechanism will be upended in the near term.</strong> While the Government is studying market reforms to decouple renewables from gas (the REMA consultation) [8][9], no major changes have been implemented. In fact, officials recently ruled out certain ideas (like "zonal pricing" by region) that could have penalised renewables [10]. The current system provides transparent price signals and incentivises investment in low-cost generation [3]&mdash;aligning with the UK's long-term net-zero strategy. <strong>Bottom line:</strong> UK wind producers benefit from selling "free" wind power at fossil fuel prices, a structurally favorable setup that has persisted for years.</p>
       </section>
-
-      <section class="card" id="market" aria-label="Market overview">
-        <h2>Market Overview: Structural Pricing Advantage</h2>
-        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=2" target="_blank" rel="noopener">Open in PDF (p.2)</a></p>
-        <p>UK marginal pricing means low‑cost wind often sells at gas‑set market prices, supporting high realised power prices for renewables.</p>
-      </section>
-
       <section class="card" id="economics" aria-label="Wind economics">
         <h2>Wind Energy Economics: High Margins from Low Costs</h2>
-        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=3" target="_blank" rel="noopener">Open in PDF (p.3)</a></p>
-        <p>Capex‑heavy, fuel‑free operations → strong EBITDA conversion; onshore vs offshore economics contrasted.</p>
+        <p><strong>Wind power's business model is simple:</strong> large upfront investment, low ongoing cost, and steady output. Once a turbine is built, the wind itself is free&mdash;so the marginal cost of generation is negligible [2]. This contrasts sharply with gas or coal plants that must continuously pay for fuel. As a result, wind farms can achieve impressive returns by selling into the high-priced wholesale market.</p>
+        <p><strong>To illustrate, consider typical project economics for onshore vs. offshore wind in the UK:</strong></p>
+        <ul>
+          <li><strong>Onshore Wind:</strong> Installation costs range around &pound;1.3&ndash;2 million per MW of capacity [11]. A 1 MW onshore turbine can generate roughly 2,500&ndash;3,000 MWh per year under average wind conditions (~30&ndash;35% capacity factor). At a wholesale price of ~&pound;100/MWh (seen during recent high-price periods), that yields ~&pound;250,000&ndash;&pound;300,000 annual revenue per MW. In simple ROI terms, that's ~15&ndash;20% of the upfront cost per year, before maintenance expenses. Even at more moderate power prices (~&pound;60&ndash;70/MWh), onshore projects can still earn low-teens percentage returns on capital. These back-of-envelope figures align with global data showing onshore wind's levelised cost has fallen to around $33/MWh (&asymp;&pound;27) in recent years [12]&mdash;far below recent market prices.</li>
+          <li><strong>Offshore Wind:</strong> Offshore turbines harness higher wind speeds (capacity factors 45&ndash;50% or more) but come with much steeper capex&mdash;up to &pound;3&ndash;5 million per MW installed [11]. The greater output partly compensates, but at &pound;100/MWh an offshore 1 MW unit (~4,400 MWh/year) would earn ~&pound;440k annually, ~10&ndash;12% of its capex. Thus, offshore wind delivers solid but lower returns (high single-digit to ~10% yearly on investment) under similar pricing assumptions. Indeed, offshore wind's levelised cost (~$81/MWh, or ~&pound;65) is roughly double onshore's [12], reflecting the tighter margins.</li>
+        </ul>
+        <p><strong>These simplified calculations exclude ongoing O&amp;M costs and land/lease fees,</strong> but they illustrate the high inherent profit margins for wind farms in today's market. After construction, operating expenses are relatively low (wind farms have no fuel expense and moderate maintenance costs). This means a large share of revenue translates into operating cash flow or "EBITDA". For instance, an economic study found onshore wind projects retain about 15&ndash;20% operating surplus on revenues (even after staff and supply costs) [13]&mdash;a healthy margin comparable to many conventional industries.</p>
+        <p><strong>Crucially, wind project economics have improved dramatically over the past decade.</strong> Scale and technology advances drove down the lifetime cost per MWh by ~68% for onshore and ~60% for offshore from 2010&ndash;2021 [14]. <strong>Bottom line:</strong> In the current UK market, a well-run wind farm is a cash-generating asset, often yielding mid-teens percentage returns on invested capital&mdash;especially for onshore sites&mdash;thanks to low operating costs and a power price benchmarked to far costlier fuel sources.</p>
       </section>
 
       <section class="card" id="company" aria-label="Company profile">
-        <h2>Company Profile: Assets &amp; Cash Flows</h2>
-        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=4" target="_blank" rel="noopener">Open in PDF (p.4)</a></p>
-        <p>Portfolio composition (~2&nbsp;GW net), geography, contract mix (ROCs/CfDs), dividend cover and cash generation.</p>
+        <h2>Company Profile: Greencoat UK Wind's Assets and Cash Flows</h2>
+        <p><strong>Greencoat UK Wind (UKW) is the UK's largest listed renewable infrastructure fund,</strong> exclusively invested in domestic wind farms [15]. The company's portfolio consists of 49 operating wind farm investments (a mix of onshore and offshore) with net generating capacity of ~2.0 GW as of December 2024 [16]. This makes UKW a significant player&mdash;it owns roughly 6% of all UK wind capacity [17], with over 1,400 individual turbines under management.</p>
+        <h3>Asset Base and Output</h3>
+        <p><strong>UKW's wind farms are geographically diversified across the UK.</strong> By portfolio value, about 55% of assets are onshore projects and 45% offshore [18]. In terms of location, ~49% of the portfolio value is in England and ~41% in Scotland (with ~7% Northern Ireland and 3% Wales)&mdash;reflecting broad regional spread [18]. This diversity helps smooth out local wind variations and grid constraints. In 2024, UKW's fleet generated 5,484 GWh of renewable electricity [19]&mdash;enough to power ~2 million homes and displace 2.2 million tonnes of CO<sub>2</sub> [20]. Notably, generation in 2024 was 13% below budget due to unusually low wind speeds and an offshore cable outage (at Hornsea 1) [21]. Even so, the portfolio produced roughly a 31% capacity factor for the year (5.48 TWh output on ~1.98 GW capacity). In a more typical wind year, output would likely have exceeded 6 TWh.</p>
+        <figure>
+          <img src="assets/output.png" alt="UKW 2024 generation and capacity factor performance" loading="lazy" />
+          <figcaption>Portfolio production versus budget for 2024, highlighting the Hornsea 1 outage impact.</figcaption>
+        </figure>
+        <h3>Asset Life and Growth</h3>
+        <p><strong>Wind turbines generally have a design life of ~25 years, and UKW's portfolio is middle-aged</strong> with a weighted average age ~8&ndash;9 years [22]. About one-third of assets are over 10 years old, half in the 5&ndash;10 year range, and ~14% are new (&lt;5 years)&mdash;implying a long remaining lifespan for most projects. By our estimates, the current assets have an average ~17 years of useful life remaining. This means significant embedded revenue potential: assuming no expansions, UKW's 2 GW portfolio (at ~35% average load factor) could generate on the order of 100&ndash;110 TWh over its remaining life&mdash;worth roughly &pound;6&ndash;7 billion in future revenues at today's power prices (e.g. ~&pound;65/MWh, which was the average price UKW captured in 2024 [23]). This rough calculation underscores that the book value of UKW's assets (&pound;3.4 billion NAV [24]) is solidly backed by decades of cash flows ahead. Furthermore, most of UKW's projects benefit from long-term agreements or subsidy support: a large portion of revenues comes from fixed-price Contracts for Difference (CfDs) or inflation-indexed Renewables Obligation Certificates (ROCs) [25]. In fact, around 60% of UKW's forecast revenues for the next four years are fixed and inflation-linked [26], providing a stable base income irrespective of short-term power price swings. Any merchant exposure on top creates upside (as seen in recent high-price periods).</p>
+        <h3>Cash Flow Focus</h3>
+        <p><strong>UKW is structured to prioritise cash generation and distribution rather than accounting profits.</strong> The company deliberately eschews net-income metrics like EPS or P/E, because depreciation on its wind farms (a non-cash expense) heavily depresses GAAP earnings. In 2024, for example, UKW's net income was reduced by large depreciation charges, even as operating cash flow was robust&mdash;leading to an accounting loss and a meaningless P/E ratio (reported as negative on financial sites [27]). This is not a concern; it's a consequence of UKW continuously investing in new assets (and depreciating them) while enjoying actual cash receipts from generation. The key metrics for a renewable infrastructure fund are cash flow and asset value, not short-term net profit. UKW's philosophy is to reinvest enough cash to "preserve the capital value" of the portfolio in real terms, while paying out the surplus as dividends [28].</p>
+        <h3>Financial Performance</h3>
+        <p><strong>UKW's latest results underscore its strong cash generation.</strong> In 2024, the portfolio's net cash generated (at the asset SPVs + group level) was &pound;278.7 million [19]. This comfortably covered the dividends paid out (&pound;226.8m, or 10p per share) by about 1.3&times; coverage [29][30]. Even with below-budget wind output, underlying dividend cover was ~1.3 times&mdash;indicating a healthy buffer. Excess cash (not paid as dividend) was reinvested or used for buybacks, enhancing asset value per share. Notably, management projects over &pound;1 billion of excess cashflow will be generated in the next five years [31], which can support further reinvestment, debt reduction, or shareholder returns.</p>
+        <figure>
+          <img src="assets/cash_flow_2024.png" alt="UKW 2024 cash flow waterfall" loading="lazy" />
+          <figcaption>2024 cash flow walk showing asset SPV generation, group cash, dividends, and reinvestment.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/cash_flow_h1_2025.png" alt="UKW H1 2025 cash flow waterfall" loading="lazy" />
+          <figcaption>H1 2025 interim cash flows illustrating dividend coverage and retained surplus.</figcaption>
+        </figure>
+        <h3>Balance Sheet and Leverage</h3>
+        <p><strong>On the balance sheet, UKW employs prudent leverage to boost equity returns.</strong> As of Dec 2024, aggregate debt was &pound;2.24 billion (approximately 40% of gross asset value) [32]. This ~40% gearing is moderate for infrastructure assets with steady cash flows&mdash;it enhances equity returns (low-cost debt funding part of the portfolio) while remaining within a conservative limit (the board's policy is to keep debt &le; 40% of assets) [33]. UKW refinanced a chunk of its loans in 2024 at attractive terms (5&ndash;7 year tenors) [34], and maintains a &pound;400m revolving credit facility for flexible funding [34]. The interest costs are well-covered by project income, and the physical wind farm assets act as solid collateral, mitigating lender risk. In short, debt is used judiciously to finance acquisitions, essentially "locking in" cheap financing against long-lived renewable assets&mdash;a sensible strategy in an asset-heavy business.</p>
+        <figure>
+          <img src="assets/balance_sheet_2024.png" alt="UKW 2024 balance sheet Sankey diagram" loading="lazy" />
+          <figcaption>2024 balance sheet composition with asset categories, leverage, and NAV bridge.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/balance_sheet_h1_2025.png" alt="UKW H1 2025 balance sheet Sankey diagram" loading="lazy" />
+          <figcaption>H1 2025 balance sheet snapshot highlighting changes in cash, debt, and asset values.</figcaption>
+        </figure>
+      </section>
+      <section class="card" id="valuation" aria-label="Valuation and outlook">
+        <h2>Valuation &amp; Outlook: Inflation-Linked Dividends at a Discount</h2>
+        <p><strong>Dividend Yield and Policy:</strong> UKW is fundamentally an income-focused vehicle. It aims to deliver an annual dividend that grows with inflation (RPI) while preserving capital in real terms [28]. The trust has an unbroken 10+ year record of dividend increases, in fact growing the payout faster than inflation cumulatively [35]. For 2024, the dividend was 10.0 pence per share, and for 2025 the company has guided 10.35 pence (a 3.5% increase, matching December 2024 RPI) [36][37]. UKW has maintained or raised its dividend every year, targeting increases in line with RPI inflation. The current yield is ~9% and management remains committed to inflation-linked growth [38]. At the current share price, this equates to a dividend yield around 9%&mdash;extremely attractive in today's market, especially for what is essentially a low-risk infrastructure asset. Management has reiterated its confidence in continuing RPI-linked dividend growth and long-term capital preservation [39][40]. Importantly, the dividend is well-supported by cash generation (1.3&ndash;1.4&times; covered in recent periods) [29][41], so UKW is not paying out of principal&mdash;it is distributing genuine earnings from wind farm operations. Investors can therefore view the current ~9% yield as sustainable income, largely insulated by inflation escalators on revenue and with a built-in growth rate equal to inflation going forward.</p>
+        <p><strong>Trading at a Discount:</strong> Despite these strengths, UKW's stock has been trading at a significant discount to its net asset value (NAV). As of year-end 2024, NAV was 151.2 pence per share, while the market price was around 128p, a 15.6% discount [42][43]. That discount has widened further in 2025 amid broader sector pessimism&mdash;recently around 25% below NAV [44]. In other words, investors today can buy &pound;1 of UKW's wind farm assets for roughly 75&ndash;85 pence. Such a discount is compelling, given the high quality and long-term nature of those assets (wind farms valued at independent appraisals and even recently confirmed by asset sales at NAV [45]). The wide discount appears driven by short-term sentiment: rising interest rates and a general selloff in renewables funds have hurt all peers [46][47]. However, UKW's management has been proactive in defending the share price&mdash;including launching &pound;200m of share buybacks since late 2023 [48][49] and even executing selective asset disposals to fund those buybacks [45]. They also reduced fees (now calculated on the lower of NAV or market cap) to be shareholder-friendly while the discount persists [50]. These actions signal strong alignment with investors and have started to stabilise the discount. In the medium term, if the discount narrows back toward NAV, investors buying at today's price would enjoy capital appreciation on top of the rich dividends.</p>
+        <p><strong>Total Return Potential:</strong> UKW's internal return targets are around 8&ndash;10% annually, and it has historically delivered in that range. The portfolio's levered IRR is ~11%, which after fund costs translates to a ~10% net return on NAV [51][52]. At the current 25% discount, the implied return on market price is even higher (since you're paying &pound;0.75 for &pound;1 of assets yielding 10% on NAV, the effective yield on cost would be ~13% if NAV is eventually realised). Even ignoring a future discount closure, an investor at the current price can reasonably expect around 9&ndash;10% annual total return composed mainly of the 9% cash dividend yield (which itself will rise with inflation). This double-digit return comes with low fundamental risk&mdash;UKW's beta to the equity market is only ~0.2 [53], reflecting much lower volatility than typical stocks. Over 5&ndash;10 year horizons, UKW has been one of the best-performing renewable infrastructure trusts and offers portfolio diversification (its NAV returns are driven by wind resources and energy economics, not the business cycle or consumer demand) [54]. In short, at current levels UKW looks like a high-yield bond proxy with equity upside: a 9% growing yield, backed by regulated hard assets, and potential for capital gains if sentiment improves.</p>
+        <figure>
+          <img src="assets/ukw_future_revenue_vs_marketcap_v9.png" alt="Projected UKW future revenue versus market capitalisation" loading="lazy" />
+          <figcaption>Forecast future revenue stacked against current market capitalisation, highlighting the implied discount.</figcaption>
+        </figure>
       </section>
 
-      <section class="card" id="valuation" aria-label="Valuation & outlook">
-        <h2>Valuation &amp; Outlook: Inflation‑Linked Dividends at a Discount</h2>
-        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=6" target="_blank" rel="noopener">Open in PDF (p.6)</a></p>
-        <p>Dividend policy (RPI‑linked), NAV discount, buybacks, and total‑return mechanics.</p>
+      <section class="card" id="risks" aria-label="Risk assessment">
+        <h2>Risk Assessment and Mitigation</h2>
+        <p><strong>No investment is without risks,</strong> and we outline the key factors for UKW:</p>
+        <ul>
+          <li>
+            <strong>Wind Resource Variability:</strong> Wind speed is the fuel for UKW's business, and it fluctuates naturally. While inter-annual variation is usually modest, there can be short-term swings. 2024 underscored this risk: UK-wide wind speeds were unusually low, and a single technical fault (a subsea cable at an offshore farm) further cut output, causing generation to fall 13% below plan [21]. Consequently, UKW's NAV dipped ~7.9% and earnings were lower than expected [55][56]. Investors also saw the share price wobble (UKW fell ~11% in total return in early 2025) amid these headwinds [57]. It's important to note, however, that dividend was still covered 1.3&times; and paid in full [29]&mdash;the impact was a timing issue, not a permanent loss. Wind variability tends to even out over time: a calm year is often followed by a windier year, and the geographic spread of UKW's farms provides some averaging (stormy in one region may compensate for calm in another). Long-term investors should expect occasional below-average wind periods; these are buying opportunities, not reasons to panic. For example, when UKW's stock dipped on 2024's low output news, the long-run value of its assets hadn't changed&mdash;the wind will blow again. A patient investor could add on such dips, locking in a higher yield. UKW's management also mitigates variability by maintaining robust dividend cover (retaining cash in good wind years to buffer the weak ones) and employing conservative wind assumptions in its planning.
+            <figure>
+              <img src="assets/wind_power_variability.png" alt="Chart of UK wind power variability and budget comparisons" loading="lazy" />
+              <figcaption>Wind resource volatility across the UK relative to budgeted expectations.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <strong>Regulatory/Government Policy Risk:</strong> A significant risk would be a change in the favorable market structure or support schemes. For instance, if the government were to reform the pricing mechanism so that renewables no longer receive the marginal gas-driven price (e.g. splitting the market, or a cap on inframarginal prices), that could reduce UKW's future revenues. However, such drastic reform appears unlikely in the near term. The current government&mdash;and indeed all major parties&mdash;remain committed to expanding renewables aggressively (Net Zero targets). In 2023, the UK consulted on market reforms but has so far not implemented a new design [8]. In fact, the outlook is more supportive: the government has increased ambitions for wind capacity (aiming to double onshore and triple offshore by 2030 [58]) and will need private capital&mdash;thus they have incentive to keep investment conditions attractive. Another policy risk could be a hostile stance by a future government (for example, a hypothetical administration rolling back net-zero initiatives or imposing strict new taxes). This seems low-probability given broad public and cross-party support for clean energy, but it's a scenario to monitor (e.g. if political winds shift by late-decade). Mitigation: UKW's diversified portfolio and focus on operating assets (not development-stage) mean it is fairly insulated from sudden policy shifts like subsidy cancellations. Even if new onshore wind builds were restricted by politics, UKW's existing assets would likely become more valuable (scarcity value of operating wind farms). If pricing reforms occur, they may involve compensatory mechanisms (like contracts or split markets that still ensure decent returns for legacy assets). UKW also actively engages in policy consultation through industry groups to advocate for investor interests.
+          </li>
+          <li>
+            <strong>Power Price and Macro Risk:</strong> Wholesale electricity prices have fallen from the extreme highs of 2022; if they stay structurally lower (e.g. due to prolonged low gas prices or oversupply of renewables), UKW's merchant revenues would be lower. Against this, remember ~60% of UKW's near-term output is hedged or fixed at preset prices [26] (via RPI-linked ROCs, fixed-price CfDs, etc.), which cushions the blow. Also, lower power prices tend to be accompanied by lower inflation&mdash;which would reduce UKW's costs and the discount rate used in its NAV (potentially increasing NAV). There's also interest rate risk: as a yield vehicle, UKW's share price is sensitive to bond rates. The past year's sector selloff was largely due to rising gilt yields (the risk-free rate), which made investors demand a higher yield and hence a lower price (wider discount) [47]. If high rates persist or climb, infrastructure funds may continue trading at discounts. Mitigant: UKW's dividend is inflation-linked and growing, so its yield in real terms stays competitive. As rates stabilise or fall (many forecasts see UK rates peaking), income stocks like UKW should regain appeal. UKW has also partially hedged interest rates on its debt and can use asset sales to reduce gearing if needed [33]&mdash;so its balance sheet is resilient to rate changes.
+          </li>
+          <li>
+            <strong>Operational and Other Risks:</strong> Given 49 wind farms, there's potential for technical issues (as seen with Hornsea's cable fault) or outages. UKW mitigates this by insurance and by portfolio scale&mdash;a single asset is usually only a few percent of the total, so issues are not catastrophic to the whole. The portfolio is also diversified across 6 different turbine manufacturers and many sites [59], reducing concentration risk in technology. Extreme weather (like storms, icing, etc.) can cause temporary downtime, but turbines are engineered for harsh conditions and insured. On the flip side, climate change could alter wind patterns in the long term&mdash;this is being studied, but there's no clear negative trend for UK wind yet (some scenarios even predict higher wind productivity in Northern Europe). Finally, <strong>ESG or political backlash</strong> against wind farms (e.g. local opposition to new onshore turbines) could slow growth opportunities, but this doesn't directly impair UKW's existing assets&mdash;if anything, limits on new builds strengthen prices for incumbent assets.
+          </li>
+        </ul>
       </section>
-
-      <section class="card" id="risks" aria-label="Risks">
-        <h2>Risk Assessment &amp; Mitigation</h2>
-        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=8" target="_blank" rel="noopener">Open in PDF (p.8)</a></p>
-        <p>Wind variability, power prices, rates, policy, and operational factors; hedging ideas for practitioners.</p>
+      <section class="card" id="hedging" aria-label="Hedging strategy">
+        <h2>Hedging Strategy &ndash; Protecting Downside</h2>
+        <p><strong>For investors particularly concerned about major downside events</strong> (for example, a 2029 general election that brings an unexpectedly anti-renewables government, or a market crash), it is natural to consider hedging strategies. In principle, one might look to buy long-dated protective put options on UKW&mdash;essentially insurance that gives the right to sell shares at a predetermined "strike" price. However, UKW does not have a liquid market for long-term listed options, meaning such instruments are not readily available to retail investors.</p>
+        <p>Instead, there are several practical alternatives. Large institutions could negotiate an over-the-counter (OTC) derivative with a bank to replicate long-dated put protection. More accessible approaches for smaller investors include:</p>
+        <ul>
+          <li>Rolling shorter-term options (if available) around key political or market risk events, accepting some cost to maintain protection.</li>
+          <li>Pairing the position with sector proxies (such as short positions in utility indices or UK power price futures) to offset part of the risk.</li>
+          <li>Holding cash reserves earmarked for re-investment during market stress, which functions as a built-in "option" to buy at lower levels.</li>
+        </ul>
+        <p><strong>The economics of such protection are straightforward.</strong> Any hedging cost reduces net income, but effectively locks in a minimum return. For example, UKW currently yields around 9% in dividends. If an investor spent the equivalent of 2% per year on protection (through rolling hedges or OTC structures), the net yield would fall to ~7%&mdash;still superior to most fixed-income yields. If adverse events never materialise, the cost is simply the price of insurance; if they do, the hedge pays off and preserves capital while dividends have been collected along the way.</p>
+        <p><strong>In this way, a hedged UKW position could behave much like a bond proxy:</strong> investors secure a base yield (dividends minus hedge costs) with strong downside protection, while retaining upside if the stock performs well. Even without listed options, similar hedging can be done by, say, shorting a power price futures contract or a utilities index as a proxy, but those are less direct. Simpler yet, an investor could just trim their position if the political/regulatory environment turns decisively negative and re-enter later. However, our analysis suggests that such drastic risk events are remote. The core business model is robust and supported by secular trends (energy transition, energy security needs). UKW's assets generate essential electricity that the UK will need more of, not less. Thus, while we remain vigilant about policy changes and market conditions, we view the current risks as manageable and largely short-term in nature. The company's own risk review concludes that its model is "simple, low risk and proven", capable of delivering its 10% return target and inflation-proofed dividends despite market volatility [40].</p>
       </section>
 
       <section class="card" id="conclusion" aria-label="Conclusion">
         <h2>Conclusion</h2>
-        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=9" target="_blank" rel="noopener">Open in PDF (p.9)</a></p>
-        <p>Why UKW behaves like a bond‑proxy with equity upside: durable cash flows + potential discount closure.</p>
+        <p><strong>Greencoat UK Wind offers a compelling investment case:</strong> it sits at the nexus of a favorable market structure and a critical growth sector (renewables). The UK's pricing system effectively hands wind generators a built-in margin by linking power prices to expensive fossil fuels&mdash;a dynamic unlikely to change soon. UKW has capitalised on this with a large, diversified portfolio of wind farms producing steady cash flows. The company converts those cash flows into a high (9%+) dividend for investors, growing each year with inflation. Operationally, UKW is well-managed, with disciplined acquisitions, active asset management, and prudent use of debt to boost returns. It has a decade-long track record of delivering cashflow and dividend growth to shareholders, outperforming peers over the long term.</p>
+        <p><strong>At the current market price, the stock is undervalued,</strong> trading at a significant discount to the intrinsic value of its wind assets. This presents an opportunity to lock in an outsized yield and potential upside as the discount closes. Risks&mdash;from wind variability to interest rates&mdash;are real but mitigated by UKW's strategy (contracts, coverage, buybacks, etc.) and are largely transient. In a world seeking clean energy, UKW is providing it profitably, with government policy tailwinds (net-zero targets) rather than headwinds. For an investor with a medium to long horizon, Greencoat UK Wind represents an attractive "infrastructure yield + growth" play: low-risk 8&ndash;10% annual returns that are uncorrelated to the broader market, backed by tangible assets powering the UK's green future.</p>
+        <p><strong>Sources:</strong> UK House of Commons Library &ndash; Energy Pricing Insight [1][4]; Greencoat UK Wind Annual Report 2024 [19][42]; AIC/Trust News &ndash; UKW 2024 Results [60][29]; Trustnet &amp; Kepler Intelligence &ndash; Analyst Commentary [38][26]; Renewable energy cost data &ndash; RenewableUK, IRENA [14]; Company filings and investor presentations.</p>
       </section>
 
       <section class="card" id="figures" aria-label="Figures">
         <h2>Figures</h2>
-        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=10" target="_blank" rel="noopener">Open Figures in PDF (from p.10)</a></p>
+        <p>Image exports from the deck are provided below in the same order as the PDF. Replace or update assets in the <code>assets</code> folder if newer figures become available.</p>
+        <div class="figure-grid">
+          <figure class="figure-card">
+            <h3>Cash Flow 2024</h3>
+            <img src="assets/cash_flow_2024.png" alt="2024 cash flow chart for UKW" loading="lazy" />
+            <small>Asset-level and group cash generation versus dividends and reinvestment.</small>
+          </figure>
+          <figure class="figure-card">
+            <h3>Cash Flow H1 2025</h3>
+            <img src="assets/cash_flow_h1_2025.png" alt="H1 2025 cash flow chart for UKW" loading="lazy" />
+            <small>Interim 2025 cash flow walk illustrating coverage during a low-wind period.</small>
+          </figure>
+          <figure class="figure-card">
+            <h3>Balance Sheet 2024</h3>
+            <img src="assets/balance_sheet_2024.png" alt="2024 balance sheet chart for UKW" loading="lazy" />
+            <small>Year-end balance sheet composition with leverage, asset mix, and NAV bridge.</small>
+          </figure>
+          <figure class="figure-card">
+            <h3>Balance Sheet H1 2025</h3>
+            <img src="assets/balance_sheet_h1_2025.png" alt="H1 2025 balance sheet chart for UKW" loading="lazy" />
+            <small>Mid-year balance sheet movements across assets, debt, and equity.</small>
+          </figure>
+          <figure class="figure-card">
+            <h3>Future Revenue vs. Market Cap</h3>
+            <img src="assets/ukw_future_revenue_vs_marketcap_v9.png" alt="Future revenue versus market capitalisation chart" loading="lazy" />
+            <small>Projected cumulative revenue stream contrasted with current equity valuation.</small>
+          </figure>
+          <figure class="figure-card">
+            <h3>Marginal Pricing Stack</h3>
+            <img src="assets/marginal pricing.png" alt="UK merit-order stack highlighting marginal gas pricing" loading="lazy" />
+            <small>Merit-order diagram showing how low-cost wind clears alongside higher-cost thermal units while receiving the marginal gas-set price.</small>
+          </figure>
+          <figure class="figure-card">
+            <h3>Wind Power Variability</h3>
+            <img src="assets/wind_power_variability.png" alt="Wind power variability analysis" loading="lazy" />
+            <small>Rolling wind production relative to plan, underscoring resource volatility.</small>
+          </figure>
+          <figure class="figure-card">
+            <h3>Portfolio Output Snapshot</h3>
+            <img src="assets/output.png" alt="UKW portfolio output snapshot" loading="lazy" />
+            <small>Generation mix and regional contributions across the current portfolio.</small>
+          </figure>
+        </div>
       </section>
 
       <section class="card" id="references" aria-label="References">
         <h2>References</h2>
-        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=15" target="_blank" rel="noopener">Open References in PDF (from p.15)</a></p>
+        <ol class="references">
+          <li>[1][2][3][4][5][6][7][8][9][14] Why is cheap renewable electricity so expensive on the wholesale market? <a href="https://commonslibrary.parliament.uk/why-is-cheap-renewable-electricity-so-expensive/" target="_blank" rel="noopener">https://commonslibrary.parliament.uk/why-is-cheap-renewable-electricity-so-expensive/</a></li>
+          <li>[10][26][33][41][54] Greencoat UK Wind (UKW) - Sep 2025 | Kepler Trust Intelligence. <a href="https://www.trustintelligence.co.uk/articles/fund-profile-greencoat-uk-wind-sep-2025" target="_blank" rel="noopener">https://www.trustintelligence.co.uk/articles/fund-profile-greencoat-uk-wind-sep-2025</a></li>
+          <li>[11] How Much is a Wind Turbine Likely to Make me and Over What Period? UK. <a href="https://www.renewableenergyhub.co.uk/main/wind-turbines/how-much-is-a-wind-turbine-likely-to-make-me-and-over-what-period" target="_blank" rel="noopener">https://www.renewableenergyhub.co.uk/main/wind-turbines/how-much-is-a-wind-turbine-likely-to-make-me-and-over-what-period</a></li>
+          <li>[12] Onshore vs Offshore Wind Farms: An In-depth Analysis. <a href="https://www.blackridgeresearch.com/blog/difference-between-onshore-and-offshore-wind-energy-farms-plants-mills?srsltid=AfmBOorcBXO5J2n5EF6wZ3Um9RSGlxNRw_royHH3oLU4_Jtv8AYBXBaP" target="_blank" rel="noopener">https://www.blackridgeresearch.com/blog/difference-between-onshore-and-offshore-wind-energy-farms-plants-mills?srsltid=AfmBOorcBXO5J2n5EF6wZ3Um9RSGlxNRw_royHH3oLU4_Jtv8AYBXBaP</a></li>
+          <li>[13] The value of an onshore wind farm - BiGGAR Economics. <a href="https://biggareconomics.co.uk/the-value-of-an-onshore-wind-farm" target="_blank" rel="noopener">https://biggareconomics.co.uk/the-value-of-an-onshore-wind-farm</a></li>
+          <li>[15][16][18][19][20][21][23][24][25][28][32][34][35][36][42][51][52][59] Greencoat UK Wind Annual Report 2024. <a href="https://www.greencoat-ukwind.com/download_file/view/69a1b4d8-ce1f-45e6-978a-b150c43a2302/" target="_blank" rel="noopener">https://www.greencoat-ukwind.com/download_file/view/69a1b4d8-ce1f-45e6-978a-b150c43a2302/</a></li>
+          <li>[17] Portfolio - Greencoat UK Wind. <a href="https://www.greencoat-ukwind.com/portfolio/" target="_blank" rel="noopener">https://www.greencoat-ukwind.com/portfolio/</a></li>
+          <li>[22] GREENCOAT UK WIND_ESG Report 2024. <a href="https://www.greencoat-ukwind.com/application/files/5717/4592/3799/GREENCOAT_UK_WIND_ESG_Report_2024.pdf" target="_blank" rel="noopener">https://www.greencoat-ukwind.com/application/files/5717/4592/3799/GREENCOAT_UK_WIND_ESG_Report_2024.pdf</a></li>
+          <li>[27] Greencoat UK Wind PLC - PE Ratio - Wisesheets. <a href="https://www.wisesheets.io/pe-ratio/UKW.L" target="_blank" rel="noopener">https://www.wisesheets.io/pe-ratio/UKW.L</a></li>
+          <li>[29][30][31][37][39][40][43][45][49][55][58][60] Poor wind yields hit Greencoat UK Wind | Market News | The AIC. <a href="https://www.theaic.co.uk/aic/news/industry-news/poor-wind-yields-hit-greencoat-uk-wind" target="_blank" rel="noopener">https://www.theaic.co.uk/aic/news/industry-news/poor-wind-yields-hit-greencoat-uk-wind</a></li>
+          <li>[38][44][46][47][48][50][56][57] Should you buy, hold or fold Greencoat UK Wind? | Trustnet. <a href="https://www.trustnet.com/news/13443429/should-you-buy-hold-or-fold-greencoat-uk-wind" target="_blank" rel="noopener">https://www.trustnet.com/news/13443429/should-you-buy-hold-or-fold-greencoat-uk-wind</a></li>
+          <li>[53] Greencoat UK Wind (LON:UKW) Statistics &amp; Valuation Metrics. <a href="https://stockanalysis.com/quote/lon/UKW/statistics/" target="_blank" rel="noopener">https://stockanalysis.com/quote/lon/UKW/statistics/</a></li>
+        </ol>
       </section>
 
-      <section class="card" aria-label="Contact">
+      <section class="card" id="author" aria-label="About the author">
         <h2>About the Author</h2>
-        <p>Ruslan Lytvynov — BSc Economics &amp; Mathematics, University of St Andrews. Quant research, renewable energy economics, and data‑driven valuation.</p>
+        <p>Ruslan Lytvynov &ndash; BSc Economics and Mathematics, University of St Andrews. Quantitative research on renewable energy, infrastructure valuation, and cash-flow modelling.</p>
       </section>
     </main>
   </div>
@@ -208,7 +439,30 @@
   </footer>
 
   <script>
-    // Highlight active TOC link on scroll
+    // ==== Auto-hiding header on scroll ====
+    (function(){
+      const header = document.getElementById('site-header');
+      let lastY = window.scrollY;
+      let ticking = false;
+      function onScroll(){
+        const y = window.scrollY;
+        if (y > lastY && y > 80) {
+          header.classList.add('hide');     // scrolling down -> hide
+        } else {
+          header.classList.remove('hide');  // scrolling up -> show
+        }
+        lastY = y;
+        ticking = false;
+      }
+      window.addEventListener('scroll', function(){
+        if (!ticking){
+          window.requestAnimationFrame(onScroll);
+          ticking = true;
+        }
+      }, {passive:true});
+    })();
+
+    // ==== Highlight active TOC link on scroll ====
     const links = document.querySelectorAll('.toc a[href^="#"]');
     const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
     const setActive = () => {
