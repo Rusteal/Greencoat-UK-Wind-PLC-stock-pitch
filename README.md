@@ -12,7 +12,7 @@ This repository hosts an 18-page investment pitch for **Greencoat UK Wind PLC (U
 ## Reading the Pitch
 
 - **PDF:** open `Greencoat_UKW_StockPitch.pdf` directly.
-- **Website:** the same content is available as a single-page site rendered from `index.html`. Once published, it can be accessed at: `https://rusteal.github.io/Greencoat-UK-Wind-PLC-stock-pitch/`.
+- **Website:** the same content is available as a single-page site rendered from `index.html`. Once published, it can be accessed at: `[Website](https://rusteal.github.io/Greencoat-UK-Wind-PLC-stock-pitch/)`.
 
 ## Regenerating the Sankey Charts
 
