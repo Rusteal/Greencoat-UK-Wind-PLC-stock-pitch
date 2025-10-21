@@ -27,5 +27,3 @@ python future_revenue_projection_chart.py  # revenue vs market cap chart
 Each script writes its output back into `assets/`, where the HTML page and PDF expect to find the figures.
 
 ---
-
-Feel free to customise the page styling or rebuild the charts before publishing. Pull requests and suggestions are welcome.
