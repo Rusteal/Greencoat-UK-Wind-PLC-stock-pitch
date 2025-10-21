@@ -1,78 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greencoat UK Wind PLC — Stock Pitch</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Greencoat UK Wind (UKW) — Stock Pitch | Ruslan Lytvynov</title>
+  <meta name="description" content="18‑page equity research pitch for Greencoat UK Wind PLC (UKW). Dividend, valuation, risks, and portfolio economics." />
   <style>
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background-color: #f5f5f5;
-      color: #222;
-      line-height: 1.6;
-      margin: 0;
-      padding: 2rem;
+    :root{
+      --bg:#0b0c0f;
+      --panel:#12141a;
+      --ink:#e8e8ea;
+      --muted:#a6a8ae;
+      --brand:#2b8cff;
+      --brand-2:#50e3c2;
+      --card:#1a1d25;
+      --border:#262a35;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
     }
-    .container {
-      max-width: 800px;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      margin: 2rem auto;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb; --panel:#ffffff; --ink:#0d0f14; --muted:#4e5563;
+        --brand:#0a66ff; --brand-2:#05c3a7; --card:#ffffff; --border:#e8eaf2; --shadow: 0 10px 24px rgba(0,0,0,.07);
+      }
     }
-    h1 {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:radial-gradient(1200px 800px at 85% -10%, rgba(80,227,194,.12), transparent 50%),
+      radial-gradient(900px 600px at -10% 20%, rgba(43,140,255,.10), transparent 60%), var(--bg);
+      color:var(--ink); font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
     }
-    h2 {
-      font-size: 1.2rem;
-      color: #555;
-      text-align: center;
-      margin-top: 0;
+    .wrap{max-width:1200px; margin:0 auto; padding:28px 22px 60px}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(14px);
+      background: color-mix(in oklab, var(--bg) 70%, transparent);
+      border-bottom:1px solid var(--border);
     }
-    a.button {
-      display: inline-block;
-      background-color: #0066cc;
-      color: white;
-      padding: 0.7rem 1.4rem;
-      border-radius: 6px;
-      text-decoration: none;
-      margin: 1rem 0;
-      text-align: center;
+    .hero{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:26px; align-items:center;
+      padding:22px 22px; max-width:1200px; margin:0 auto;
     }
-    a.button:hover {
-      background-color: #004d99;
+    .hero h1{
+      margin:.2rem 0 .4rem; font-weight:800; letter-spacing:.2px; line-height:1.15;
+      font-size: clamp(24px, 2.4vw + 10px, 40px);
+      background: linear-gradient(90deg, var(--ink), color-mix(in oklab, var(--brand) 30%, var(--ink)));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    iframe {
-      width: 100%;
-      height: 900px;
-      border: none;
-      margin-top: 1.5rem;
+    .tagline{color:var(--muted); font-size:clamp(14px,1.2vw+8px,18px); margin:0}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; text-decoration:none;
+      border:1px solid var(--border); background:var(--panel); color:var(--ink);
+      padding:10px 14px; border-radius:12px; box-shadow:var(--shadow); transition: all .18s ease;
+      font-weight:600;
+    }
+    .btn svg{width:18px; height:18px}
+    .btn.primary{background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#0d1117; border-color:transparent}
+    .btn:hover{transform:translateY(-1px); box-shadow: 0 16px 40px rgba(0,0,0,.25)}
+    .grid{display:grid; grid-template-columns: 280px 1fr; gap:24px; margin-top:26px}
+    nav{
+      position:sticky; top:84px; align-self:start; background:var(--panel); border:1px solid var(--border);
+      border-radius:16px; padding:14px 14px; box-shadow:var(--shadow);
+    }
+    nav h3{margin:.2rem 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted)}
+    .toc{list-style:none; padding:0; margin:0}
+    .toc li{margin:6px 0}
+    .toc a{
+      display:block; text-decoration:none; color:var(--ink); padding:8px 10px; border-radius:10px;
+      border:1px solid transparent;
+    }
+    .toc a:hover, .toc a:focus{background: color-mix(in oklab, var(--brand) 12%, var(--panel)); border-color:var(--border)}
+    .toc small{color:var(--muted); font-size:12px}
+    main{min-width:0}
+    section.card{
+      background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:18px;
+      box-shadow:var(--shadow); margin-bottom:18px;
+    }
+    section.card h2{margin:.2rem 0 .6rem; font-size:22px}
+    .pdf-embed{aspect-ratio: 8.5/11; width:100%; min-height:70vh; border-radius:14px; border:1px solid var(--border)}
+    .meta{display:flex; flex-wrap:wrap; gap:14px; color:var(--muted); font-size:14px}
+    footer{margin-top:36px; color:var(--muted); text-align:center}
+    code.inline{background:var(--card); border:1px solid var(--border); padding:.1rem .4rem; border-radius:6px}
+    @media (max-width: 980px){
+      .hero{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr}
+      nav{position:relative; top:auto}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Greencoat UK Wind PLC</h1>
-    <h2>Equity Research Pitch by Ruslan Lytvynov</h2>
+  <header>
+    <div class="hero">
+      <div>
+        <h1>Greencoat UK Wind (UKW) — Equity Research Pitch</h1>
+        <p class="tagline">An 18‑page investment thesis: pricing structure, economics, portfolio, valuation, and risks — by Ruslan Lytvynov.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="Greencoat_UKW_StockPitch.pdf" target="_blank" rel="noopener">
+            <!-- Document icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6"/></svg>
+            View PDF
+          </a>
+          <a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=1" target="_blank" rel="noopener">Open at Cover</a>
+          <a class="btn" href="Greencoat_UKW_StockPitch.pdf" download>Download</a>
+        </div>
+        <p class="meta">
+          <span>Last updated: <time datetime="2025-10-21">21 Oct 2025</time></span>
+          <span>Length: 18 pages</span>
+        </p>
+      </div>
+      <div>
+        <section class="card" aria-label="Executive summary">
+          <h2 id="summary">Executive Summary</h2>
+          <p>This report argues that <strong>UK marginal-cost pricing</strong> structurally benefits wind assets; UKW’s diversified 2&nbsp;GW portfolio converts this into <strong>inflation‑linked dividends</strong> (~9% yield) with prudent leverage and buybacks supporting NAV, while key risks are wind variability, rates, and policy.</p>
+          <p style="margin:.4rem 0 0"><a class="btn" href="#toc">Jump to Table of Contents</a></p>
+        </section>
+      </div>
+    </div>
+  </header>
 
-    <p>
-      This 18-page report provides a fundamental and quantitative analysis of 
-      <b>Greencoat UK Wind PLC (UKW)</b>, focusing on wind variability, 
-      electricity pricing mechanisms, and asset-level portfolio performance.
-    </p>
+  <div class="wrap grid">
+    <nav aria-label="Table of contents">
+      <h3 id="toc">Contents</h3>
+      <ul class="toc">
+        <li><a href="#embed">Full Report (embedded)</a></li>
+        <li><a href="#high-yield">Greencoat UK Wind — High‑Yield Renewable Power Play <small>(open PDF p.2)</small></a></li>
+        <li><a href="#market">Market Overview: Structural Pricing Advantage <small>(p.2)</small></a></li>
+        <li><a href="#economics">Wind Energy Economics: High Margins from Low Costs <small>(p.3)</small></a></li>
+        <li><a href="#company">Company Profile: Assets & Cash Flows <small>(p.4)</small></a></li>
+        <li><a href="#valuation">Valuation &amp; Outlook: Inflation‑Linked Dividends <small>(p.6)</small></a></li>
+        <li><a href="#risks">Risk Assessment &amp; Mitigation <small>(p.8)</small></a></li>
+        <li><a href="#conclusion">Conclusion <small>(p.9)</small></a></li>
+        <li><a href="#figures">Figures <small>(p.10)</small></a></li>
+        <li><a href="#references">References <small>(p.15)</small></a></li>
+      </ul>
+      <hr style="border:0;border-top:1px solid var(--border);margin:12px 0" />
+      <p class="tagline" style="margin:6px 4px 0">Each section link below also provides a shortcut to the exact page inside the PDF.</p>
+    </nav>
 
-    <a class="button" href="Greencoat_UKW_StockPitch.pdf" target="_blank">
-      📄 View Full Report (PDF)
-    </a>
+    <main>
+      <section class="card" id="embed" aria-label="PDF">
+        <h2>Full Report — Embedded Reader</h2>
+        <iframe class="pdf-embed" src="Greencoat_UKW_StockPitch.pdf#view=FitH&toolbar=1&navpanes=0"></iframe>
+        <p class="tagline" style="margin-top:10px">Tip: Use the PDF toolbar to search, zoom, or open in a new tab.</p>
+      </section>
 
-    <!-- Optional: Embed the PDF directly below -->
-    <iframe src="Greencoat_UKW_StockPitch.pdf"></iframe>
+      <section class="card" id="high-yield" aria-label="High-yield angle">
+        <h2>Greencoat UK Wind — High‑Yield Renewable Power Play</h2>
+        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=2" target="_blank" rel="noopener">Open this section in PDF (p.2)</a></p>
+        <p>Overview of the investment case, framing UKW as a cash‑generative, inflation‑linked yield vehicle backed by regulated hard assets.</p>
+      </section>
 
-    <!-- Optional: you can add one or two summary charts -->
-    <!-- <p><img src="assets/plot1.png" alt="Wind Variability vs Production" style="width:100%; border-radius:8px;"></p> -->
+      <section class="card" id="market" aria-label="Market overview">
+        <h2>Market Overview: Structural Pricing Advantage</h2>
+        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=2" target="_blank" rel="noopener">Open in PDF (p.2)</a></p>
+        <p>UK marginal pricing means low‑cost wind often sells at gas‑set market prices, supporting high realised power prices for renewables.</p>
+      </section>
+
+      <section class="card" id="economics" aria-label="Wind economics">
+        <h2>Wind Energy Economics: High Margins from Low Costs</h2>
+        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=3" target="_blank" rel="noopener">Open in PDF (p.3)</a></p>
+        <p>Capex‑heavy, fuel‑free operations → strong EBITDA conversion; onshore vs offshore economics contrasted.</p>
+      </section>
+
+      <section class="card" id="company" aria-label="Company profile">
+        <h2>Company Profile: Assets &amp; Cash Flows</h2>
+        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=4" target="_blank" rel="noopener">Open in PDF (p.4)</a></p>
+        <p>Portfolio composition (~2&nbsp;GW net), geography, contract mix (ROCs/CfDs), dividend cover and cash generation.</p>
+      </section>
+
+      <section class="card" id="valuation" aria-label="Valuation & outlook">
+        <h2>Valuation &amp; Outlook: Inflation‑Linked Dividends at a Discount</h2>
+        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=6" target="_blank" rel="noopener">Open in PDF (p.6)</a></p>
+        <p>Dividend policy (RPI‑linked), NAV discount, buybacks, and total‑return mechanics.</p>
+      </section>
+
+      <section class="card" id="risks" aria-label="Risks">
+        <h2>Risk Assessment &amp; Mitigation</h2>
+        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=8" target="_blank" rel="noopener">Open in PDF (p.8)</a></p>
+        <p>Wind variability, power prices, rates, policy, and operational factors; hedging ideas for practitioners.</p>
+      </section>
+
+      <section class="card" id="conclusion" aria-label="Conclusion">
+        <h2>Conclusion</h2>
+        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=9" target="_blank" rel="noopener">Open in PDF (p.9)</a></p>
+        <p>Why UKW behaves like a bond‑proxy with equity upside: durable cash flows + potential discount closure.</p>
+      </section>
+
+      <section class="card" id="figures" aria-label="Figures">
+        <h2>Figures</h2>
+        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=10" target="_blank" rel="noopener">Open Figures in PDF (from p.10)</a></p>
+      </section>
+
+      <section class="card" id="references" aria-label="References">
+        <h2>References</h2>
+        <p><a class="btn" href="Greencoat_UKW_StockPitch.pdf#page=15" target="_blank" rel="noopener">Open References in PDF (from p.15)</a></p>
+      </section>
+
+      <section class="card" aria-label="Contact">
+        <h2>About the Author</h2>
+        <p>Ruslan Lytvynov — BSc Economics &amp; Mathematics, University of St Andrews. Quant research, renewable energy economics, and data‑driven valuation.</p>
+      </section>
+    </main>
   </div>
+
+  <footer class="wrap">
+    <p>&copy; 2025 Ruslan Lytvynov. This page is for portfolio review only. All opinions are personal and not investment advice.</p>
+  </footer>
+
+  <script>
+    // Highlight active TOC link on scroll
+    const links = document.querySelectorAll('.toc a[href^="#"]');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const setActive = () => {
+      const y = window.scrollY + 120;
+      let idx = sections.findIndex(sec => sec.offsetTop > y) - 1;
+      if (idx < 0) idx = sections.length - 1;
+      links.forEach(l => l.classList.remove('active'));
+      if (sections[idx]) {
+        const id = '#' + sections[idx].id;
+        const active = document.querySelector('.toc a[href="' + id + '"]');
+        if (active) active.classList.add('active');
+      }
+    };
+    document.addEventListener('scroll', setActive, {passive:true});
+    window.addEventListener('load', setActive);
+  </script>
 </body>
 </html>
